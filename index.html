@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    </head>
+    <body>
+        <script src="index.js"></script>
+        
+        <div id="hls-player"></div>
+
+        <br>
+        <button onclick="onPlayButtonClick()">play</button>
+        <button onclick="onResumeButtonClick()">resume</button>
+        <button onclick="onPauseButtonClick()">pause</button>
+        <button onclick="onStopButtonClick()">stop</button>
+        Loop
+        <input type="radio" id="loop-on" name="toggle"><label for="toggle-on">On</label>
+        <input type="radio" id="loop-off" name="toggle" checked><label for="toggle-off">Off</label>
+        <p>
+            CHANNEL (↑ ↓)
+            <br>
+            <button onclick="handleVideoChannel('R')">+</button>
+            <button onclick="handleVideoChannel('L')">-</button>
+        </p>
+        <p>
+            TIMEMACHINE (← →)
+            <br>
+            <button onclick="handleVideoFrame('F')">+</button>
+            <button onclick="handleVideoFrame('B')">-</button>
+        </p>
+        <p>
+            videoSrc
+            <input id='videoSrc' size="100"
+                value="https://test-hls-dist.4dreplay.io/mehd/PARK_MIN_WOO_RUN_in_the_top_of_the_4th_inning/"
+                placeholder="Content URL"
+                readonly>
+        </p>
+        <input id='seekPosition' size="5" value="0" placeholder="SeekTo">
+        <button onclick="seek(document.getElementById('seekPosition').value)">seek</button>
+        <p>
+            <!-- channel 1 ~ 58 -->
+        </p>
+        <p id="currentTime">currentTime</p>
+        <span id="level"> level </span><span id="updatedChannel"> updatedChannel </span>
+        <br>
+        <br>
+        <input id="positionSwitch" size="20" placeholder="position switch"><button onclick="switchPosition(document.getElementById('positionSwitch').value)">change</button>
+
+        <!-- player sdk -->
+        <script src='./output/fdreplay_v0.0.2.js'></script>
+    </body>
+</html>
